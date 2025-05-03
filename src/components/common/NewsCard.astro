@@ -1,0 +1,56 @@
+---
+import type { NewsItem } from "../../types";
+import { formatDate } from "../../utils/formatDate";
+import { Image } from "astro:assets";
+
+const { Title, Content, image_source, date_created } = Astro.props as NewsItem;
+const date = formatDate(date_created);
+---
+
+<article
+  class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+>
+  {
+    (
+      <div class="aspect-video overflow-hidden">
+        <Image
+          src={image_source}
+          alt={Title}
+          width={450}
+          height={225}
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+    )
+  }
+
+  <div class="p-6 flex flex-col h-full">
+    <p class="text-sm text-gray-500 mb-2">{date}</p>
+
+    <h3 class="font-heading text-xl font-bold mb-3 line-clamp-2">
+      {Title}
+    </h3>
+
+    <div class="prose prose-sm line-clamp-3 mb-4">
+      <slot />
+    </div>
+
+    <a
+      href={"url"}
+      class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800 transition-colors"
+    >
+      Lue lisää
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 ml-1"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </a>
+  </div>
+</article>

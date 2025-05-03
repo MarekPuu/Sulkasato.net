@@ -1,0 +1,42 @@
+---
+import type { ScheduleItem } from "../../types";
+import { formatTimeRange } from "../../utils/formatDate";
+import { sortByWeekday } from "../../utils/DateUtils";
+
+// await new Promise((res) => setTimeout(res, 3000));
+
+const res = await fetch(
+  "http://directus-mok00ksoo8s00ogkoo8cw8o0.10.40.31.91.sslip.io/items/Pelivuorot"
+);
+const data = await res.json();
+
+const schedule: ScheduleItem[] = data.data ?? [];
+schedule.sort(sortByWeekday);
+---
+
+<div class="overflow-x-auto mb-6">
+  <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
+    <thead class="bg-blue-500 text-white">
+      <tr>
+        <th class="py-3 px-4 text-left">Päivä</th>
+        <th class="py-3 px-4 text-left">Aika</th>
+        <th class="py-3 px-4 text-left">Paikka</th>
+        <th class="py-3 px-4 text-left">Kenelle</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      {
+        schedule.map((item, index) => (
+          <tr class={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+            <td class="py-3 px-4 font-medium">{item.Day}</td>
+            <td class="py-3 px-4">
+              {formatTimeRange(item.StartTime, item.EndTime)}
+            </td>
+            <td class="py-3 px-4">{item.Location}</td>
+            <td class="py-3 px-4">{item.ToWhom}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

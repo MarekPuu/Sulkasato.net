@@ -1,0 +1,26 @@
+---
+import Button from "../common/Button.astro";
+import Section from "../common/Section.astro";
+import AjankohtaistaPosts from "./Ajankohtaista.Posts.astro";
+import NewsCardSkeleton from "../common/NewsCard.Skeleton.astro";
+---
+
+<Section title="Ajankohtaista" bgColor="bg-gray-50">
+  <div class="mb-6">
+    <AjankohtaistaPosts server:defer>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        slot="fallback"
+      >
+        <NewsCardSkeleton />
+        <NewsCardSkeleton />
+        <NewsCardSkeleton />
+      </div>
+    </AjankohtaistaPosts>
+  </div>
+  <div class="mx-auto w-fit">
+    <Button variant="outline" href="/uutiset" size="md">
+      Katso kaikki uutiset
+    </Button>
+  </div>
+</Section>

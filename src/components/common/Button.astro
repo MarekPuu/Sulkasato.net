@@ -1,0 +1,72 @@
+---
+export interface Props {
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary" | "outline" | "text";
+  size?: "sm" | "md" | "lg";
+  disabled?: boolean;
+  class?: string;
+  ariaLabel?: string;
+  [x: string]: any;
+}
+
+type RestProps = Omit<
+  Props,
+  "href" | "type" | "variant" | "size" | "class" | "disabled" | "ariaLabel"
+>;
+
+const {
+  href,
+  type = "button",
+  variant = "primary",
+  size = "md",
+  disabled = false,
+  class: className = "",
+  ariaLabel,
+  ...rest
+} = Astro.props as Props & RestProps;
+
+const variantClasses = {
+  primary: "bg-[#3b82f6] text-white hover:bg-[#2563eb] transition-colors",
+  secondary: "bg-[#60a5fa] text-white hover:bg-[#3b82f6] transition-colors",
+  outline:
+    "text-[#3b82f6] border border-[#3b82f6] hover:bg-gray-150 transition-colors",
+  text: "bg-transparent text-[#3b82f6] hover:bg-gray-50 transition-colors",
+};
+
+const sizeClasses = {
+  sm: "text-sm py-1 px-3",
+  md: "py-2 px-4",
+  lg: "text-lg py-3 px-6",
+};
+
+const disabledClasses = disabled
+  ? "opacity-50 cursor-not-allowed pointer-events-none"
+  : "";
+
+const classes = `
+  inline-flex items-center justify-center
+  font-medium rounded-lg
+  transition-colors duration-200
+  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500
+  ${variantClasses[variant]}
+  ${sizeClasses[size]}
+  ${disabledClasses}
+  ${className}
+`;
+
+const Tag = href && !disabled ? "a" : "button";
+---
+
+<Tag
+  href={!disabled ? href : undefined}
+  type={!href ? type : undefined}
+  class={classes}
+  disabled={disabled && !href ? true : undefined}
+  aria-disabled={disabled ? "true" : undefined}
+  aria-label={ariaLabel}
+  role={href && disabled ? "button" : undefined}
+  {...rest}
+>
+  <slot />
+</Tag>

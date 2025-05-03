@@ -1,0 +1,44 @@
+---
+import Button from "../common/Button.astro";
+
+const {} = Astro.props;
+---
+
+<section
+  class="relative min-h-[85vh] flex items-center justify-start bg-cover bg-center"
+  style="background-image: url('/images/hero-bg.webp')"
+>
+  <div class="absolute inset-0 bg-black/70 z-10"></div>
+
+  <!-- Content -->
+  <div class="w-full max-w-[90%] xl:max-w-screen-2xl mx-auto z-20">
+    <div class="max-w-3xl text-white">
+      <h1
+        class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-on-scroll"
+      >
+        Sulkasato Iisalmi
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-gray-100 animate-on-scroll">
+        Sulkapallon parissa vuodesta 1980
+      </p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 animate-on-scroll">
+      <Button
+        href="/liity-jaseneksi"
+        variant="primary"
+        size="lg"
+        ariaLabel="Liity jäseneksi"
+      >
+        Liity jäseneksi
+      </Button>
+      <Button
+        href="/pelipaikat"
+        variant="outline"
+        size="lg"
+        ariaLabel="Katso pelipaikat"
+      >
+        Katso pelipaikat
+      </Button>
+    </div>
+  </div>
+</section>

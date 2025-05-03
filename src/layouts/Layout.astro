@@ -1,22 +1,178 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+// import Footer from "../components/Footer.astro";
+
+import { SEO } from "astro-seo";
+
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Sulkasato Iisalmi ry - edistämässä sulkapallon harrastamista Iisalmessa vuodesta 1980",
+  ogImage = "/images/og-image.jpg",
+} = Astro.props;
+
+const siteUrl = "https://sulkasato.fi";
+const titleWithSite = `${title} | Sulkasato Iisalmi`;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="fi">
+  <head>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SEO
+      title={titleWithSite}
+      charset="utf-8"
+      description={description}
+      canonical={siteUrl}
+      openGraph={{
+        basic: {
+          title: titleWithSite,
+          type: "website",
+          image: ogImage,
+          url: siteUrl,
+        },
+        optional: {
+          description,
+          siteName: "Sulkasato Iisalmi",
+        },
+      }}
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <!-- <Footer /> -->
+
+    <script>
+      // Simple intersection observer for animation on scroll
+      document.addEventListener("DOMContentLoaded", () => {
+        const animatedElements =
+          document.querySelectorAll(".animate-on-scroll");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        animatedElements.forEach((element) => {
+          observer.observe(element);
+        });
+      });
+    </script>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  :root {
+    --accent: #3580ff;
+    --accent-light: #8dc0ff;
+    --accent-dark: #1a52e2;
+    --accent-gradient: linear-gradient(
+      45deg,
+      var(--accent),
+      var(--accent-light) 30%,
+      white 60%
+    );
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif;
+
+    color: #333;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .animated {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Container width constraints */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
 </style>

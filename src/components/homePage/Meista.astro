@@ -1,0 +1,44 @@
+---
+import Button from "../common/Button.astro";
+import Section from "../common/Section.astro";
+import { Image } from "astro:assets";
+import MeistaImage from "../../assets/MeistaIMG.png";
+---
+
+<Section
+  title="Tervetuloa Sulkasatoon"
+  subtitle="Olemme toimineet jo vuodesta 1980 lähtien"
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    <div class="order-2 md:order-1">
+      <p class="text-lg mb-6 animate-on-scroll">
+        Sulkasato Iisalmi on vuonna 1980 perustettu sulkapalloseura, joka
+        tarjoaa harrastusmahdollisuuksia kaikenikäisille ja -tasoisille
+        pelaajille.
+      </p>
+      <p class="text-lg mb-6 animate-on-scroll">
+        Järjestämme säännöllisiä pelivuoroja, koulutuksia ja osallistumme
+        kilpailuihin. Toimintamme perustuu yhteisöllisyyteen ja liikunnan iloon
+        – tervetuloa mukaan!
+      </p>
+      <div class="flex gap-4 animate-on-scroll">
+        <Button href="/liity-jaseneksi" variant="primary"
+          >Liity jäseneksi</Button
+        >
+        <Button href="/seuran-historia" variant="outline"
+          >Lue lisää seurasta</Button
+        >
+      </div>
+    </div>
+
+    <div class="order-1 md:order-2 animate-on-scroll">
+      <Image
+        src={MeistaImage}
+        alt="Badminton player"
+        loading="lazy"
+        height="320"
+        class="rounded-lg shadow-lg h-80 object-contain w-fit mx-auto"
+      />
+    </div>
+  </div>
+</Section>

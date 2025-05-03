@@ -1,0 +1,22 @@
+---
+import Button from "../common/Button.astro";
+import Section from "../common/Section.astro";
+import PelipaikatJaAikataulutTable from "../common/PelipaikatJaAikataulut.Table.astro";
+import PelipaikatJaAikataulutSkeleton from "../common/PelipaikatJaAikataulut.Skeleton.astro";
+---
+
+<Section
+  title="Pelipaikat ja aikataulut"
+  subtitle="Katso pelipaikat sivulta enemmän tietoja"
+>
+  <PelipaikatJaAikataulutTable server:defer>
+    <div class="mb-6 animate-pulse" slot="fallback">
+      <PelipaikatJaAikataulutSkeleton />
+    </div>
+  </PelipaikatJaAikataulutTable>
+  <div class="mx-auto w-fit">
+    <Button variant="outline" href="/uutiset" size="md">
+      Tarkemmat tiedot pelipaikoista
+    </Button>
+  </div>
+</Section>

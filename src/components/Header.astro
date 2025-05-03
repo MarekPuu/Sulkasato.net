@@ -1,0 +1,94 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<header
+  class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50 transition-all duration-300"
+  id="main-header"
+>
+  <div
+    class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between"
+  >
+    <a href="/" class="flex items-center space-x-3">
+      <span class="font-heading font-bold text-xl md:text-2xl text-primary-700"
+        >Sulkasato Iisalmi</span
+      >
+    </a>
+
+    <button
+      id="mobile-menu-button"
+      class="md:hidden focus:outline-none"
+      aria-label="Menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-primary-700"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <nav id="desktop-nav" class="hidden md:flex items-center space-x-1">
+      <NavLink href="/" text="Etusivu" />
+      <NavLink href="/uutiset" text="Uutiset" />
+      <NavLink href="/pelipaikat" text="Pelipaikat" />
+      <NavLink href="/jasenyys" text="Jäsenyys" />
+      <NavLink href="/kilpailut" text="Kilpailut" />
+      <NavLink href="/galleria" text="Galleria" />
+      <NavLink href="/historia" text="Historia" />
+      <NavLink href="/yhteystiedot" text="Yhteystiedot" />
+    </nav>
+  </div>
+
+  <!-- Mobile navigation -->
+  <nav id="mobile-nav" class="hidden container mx-auto px-4 pb-4">
+    <div class="flex flex-col space-y-2">
+      <NavLink href="/" text="Etusivu" isMobile={true} />
+      <NavLink href="/uutiset" text="Uutiset" isMobile={true} />
+      <NavLink href="/pelipaikat" text="Pelipaikat" isMobile={true} />
+      <NavLink href="/jasenyys" text="Jäsenyys" isMobile={true} />
+      <NavLink href="/kilpailut" text="Kilpailut" isMobile={true} />
+      <NavLink href="/galleria" text="Galleria" isMobile={true} />
+      <NavLink href="/historia" text="Historia" isMobile={true} />
+      <NavLink href="/yhteystiedot" text="Yhteystiedot" isMobile={true} />
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer element to prevent content from being hidden behind fixed header -->
+<div class="h-12 md:h-16"></div>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileNav?.classList.toggle("hidden");
+  });
+
+  // Header scroll behavior
+  const header = document.getElementById("main-header");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 100) {
+      header?.classList.add("py-2");
+      header?.classList.add("shadow-md");
+    } else {
+      header?.classList.remove("py-2");
+      header?.classList.remove("shadow-md");
+    }
+
+    lastScrollTop = scrollTop;
+  });
+</script>

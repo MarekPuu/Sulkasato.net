@@ -1,0 +1,42 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  centered?: boolean;
+  bgColor?: string;
+  id?: string;
+}
+
+const {
+  title,
+  subtitle,
+  centered = false,
+  bgColor = "bg-white",
+  id,
+} = Astro.props;
+
+const titleAlignment = centered ? "text-center" : "text-left";
+---
+
+<section class={`${bgColor} py-16 overflow-x-hidden`} id={id}>
+  <div class="container mx-auto px-4">
+    <div class={` mb-12`}>
+      <h2
+        class={`font-heading text-3xl md:text-4xl font-bold mb-4 ${titleAlignment} animate-on-scroll`}
+      >
+        {title}
+      </h2>
+      {
+        subtitle && (
+          <p
+            class={`text-lg text-gray-600 ${titleAlignment} animate-on-scroll`}
+          >
+            {subtitle}
+          </p>
+        )
+      }
+    </div>
+
+    <slot />
+  </div>
+</section>

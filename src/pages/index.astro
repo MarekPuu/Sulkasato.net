@@ -1,11 +1,19 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Ajankohtaista from "../components/homePage/Ajankohtaista.astro";
+import Hero from "../components/homePage/Hero.astro";
+import LiityMukaan from "../components/homePage/LiityMukaan.astro";
+import Meista from "../components/homePage/Meista.astro";
+import PelipaikatJaAikataulut from "../components/homePage/PelipaikatJaAikataulut.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Etusivu"
+  description="Sulkasato Iisalmi ry tarjoaa sulkapalloa kaikenikäisille Iisalmessa. Katso pelipaikat, aikataulut, ajankohtaiset uutiset ja liity mukaan toimintaan!"
+>
+  <Hero />
+  <Meista />
+  <Ajankohtaista />
+  <PelipaikatJaAikataulut />
+  <LiityMukaan />
 </Layout>
