@@ -1,7 +1,7 @@
 ---
 import type { NewsItem } from "../../types";
 import { formatDate } from "../../utils/formatDate";
-const { Title, Content, image_source, date_created } = Astro.props as NewsItem;
+const { Title, image_source, date_created } = Astro.props as NewsItem;
 const date = formatDate(date_created);
 ---
 

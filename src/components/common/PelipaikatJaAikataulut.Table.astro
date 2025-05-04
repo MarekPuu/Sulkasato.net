@@ -1,19 +1,7 @@
 ---
 import type { ScheduleItem } from "../../types";
 import { formatTimeRange } from "../../utils/formatDate";
-// await new Promise((res) => setTimeout(res, 3000));
-import { fetchSchedule } from "../../lib/api/schedule";
-
-let schedule: ScheduleItem[] = [];
-let fetchingError: string | null = null;
-
-try {
-  schedule = await fetchSchedule();
-} catch (error) {
-  fetchingError =
-    "Pelivuorojen lataaminen epäonnistui. Yritä myöhemmin uudelleen.";
-  console.error("Error fetching schedule:", error);
-}
+import { schedule } from "../../data/schedules";
 ---
 
 <div class="overflow-x-auto mb-6 shadow-sm">
@@ -28,13 +16,7 @@ try {
     </thead>
     <tbody class="divide-y divide-gray-200">
       {
-        fetchingError ? (
-          <tr>
-            <td colspan="4" class="py-4 px-4 text-center text-red-600">
-              {fetchingError}
-            </td>
-          </tr>
-        ) : schedule.length === 0 ? (
+        schedule.length === 0 ? (
           <tr>
             <td colspan="4" class="py-4 px-4 text-center text-gray-600 italic">
               Ei pelivuoroja saatavilla.
