@@ -1,0 +1,4 @@
+name = "sulkasato-cf-worker"
+type = "javascript"
+main = "dist/_worker.js"
+compatibility_date = "2025-05-04"
