@@ -16,10 +16,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: "viewport",
-  },
+
   site: "https://sulkasato.net",
   output: "static",
   integrations: [sitemap(), robotsTxt(), icon()],
