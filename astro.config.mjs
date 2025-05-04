@@ -3,8 +3,6 @@ import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
-import react from "@astrojs/react";
-
 import sitemap from "@astrojs/sitemap";
 
 import robotsTxt from "astro-robots-txt";
@@ -20,6 +18,6 @@ export default defineConfig({
   },
 
   site: "https://sulkasato.net",
-  integrations: [react(), sitemap(), robotsTxt(), icon()],
+  integrations: [sitemap(), robotsTxt(), icon()],
   adapter: cloudflare(),
 });
