@@ -22,7 +22,7 @@ export default defineConfig({
   },
   site: "https://sulkasato.net",
   integrations: [react(), sitemap(), robotsTxt(), icon()],
-
+  output: "server",
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
