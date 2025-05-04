@@ -1,29 +1,17 @@
 ---
-import type { NewsItem } from "../../types";
 import NewsCard from "../common/NewsCard.astro";
-import { fetchNews } from "../../lib/api/news";
-// await new Promise((res) => setTimeout(res, 3000));
-
-let news = [] as NewsItem[];
-let fetchingError: string | null = null;
-
-try {
-  news = await fetchNews({ sort: "-date_created", limit: 3 });
-} catch (error) {
-  fetchingError = "Uutisten lataaminen epäonnistui. Yritä myöhemmin uudelleen.";
-  console.error("Error fetching news:", error);
-}
----
-
-{
-  fetchingError && (
-    <div class="text-center text-red-600 text-lg py-8">{fetchingError}</div>
+import { news } from "../../data/news";
+const sortedNews = news
+  .sort(
+    (a, b) =>
+      new Date(b.date_created).getTime() - new Date(a.date_created).getTime()
   )
-}
+  .slice(0, 3);
+---
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {
-    news.map((item, index) => (
+    sortedNews.map((item, index) => (
       <NewsCard key={index} {...item} image_source={item.image_source}>
         {item.Content}
       </NewsCard>

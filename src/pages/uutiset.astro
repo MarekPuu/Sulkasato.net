@@ -2,7 +2,6 @@
 import PageHero from "../components/common/PageHero.astro";
 import Layout from "../layouts/Layout.astro";
 import NewsFeed from "../components/newsPage/NewsFeed.astro";
-import NewsFeedSkeleton from "../components/newsPage/NewsFeed.Skeleton.astro";
 ---
 
 <Layout
@@ -11,8 +10,6 @@ import NewsFeedSkeleton from "../components/newsPage/NewsFeed.Skeleton.astro";
 >
   <PageHero title="Uutiset" subtitle="Ajankohtaiset uutiset ja tiedotteet" />
   <div class="container mx-auto px-4 py-8">
-    <NewsFeed server:defer>
-      <NewsFeedSkeleton slot="fallback" />
-    </NewsFeed>
+    <NewsFeed />
   </div>
 </Layout>
