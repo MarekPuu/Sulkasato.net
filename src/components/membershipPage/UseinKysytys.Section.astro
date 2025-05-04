@@ -1,0 +1,27 @@
+---
+import Section from "../common/Section.astro";
+import { faqs } from "../../data/faqs";
+---
+
+<Section title="Usein kysytyt kysymykset" bgColor="bg-gray-50">
+  <div class="max-w-3xl mx-auto">
+    <div class="space-y-6">
+      {
+        faqs.map((faq) => (
+          <div class="bg-white rounded-lg shadow p-6 animate-on-scroll">
+            <h3 class="font-heading text-xl font-bold mb-3">{faq.question}</h3>
+            {Array.isArray(faq.answer) ? (
+              <ul class="space-y-2 mb-6">
+                {faq.answer.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p class="mb-6">{faq.answer}</p>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>

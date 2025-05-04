@@ -1,1 +1,7 @@
 @import "tailwindcss";
+@tailwind utilities;
+
+:root {
+  --color-primary: #1a52e2;
+  --color-dark-blue: #172554;
+}

@@ -1,0 +1,89 @@
+---
+import { membershipOptions } from "../../data/membershipOptions";
+import Button from "../../components/common/Button.astro";
+import { Icon } from "astro-icon/components";
+import Section from "../common/Section.astro";
+
+const benefits = [
+  { icon: "mdi:calendar", text: "Maksuttomat pelivuorot ympäri vuoden" },
+  { icon: "mdi:medal", text: "Maksuttoman osallistumisen kilpailuihin" },
+  { icon: "mdi:book-open-variant", text: "Valmennus- ja kurssitoimintaa" },
+  { icon: "mdi:percent", text: "Alennus varusteista" },
+];
+---
+
+<Section
+  title="Hinnasto"
+  subtitle="Voit maksaa joko puolen vuoden tai koko vuoden jäsenmaksun."
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    {
+      membershipOptions.map((option) => (
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-0.3 hover:shadow-lg animate-on-scroll">
+          <div class="bg-[var(--color-primary)] text-white p-6 text-center">
+            <h3 class="font-heading text-xl font-bold mb-4">{option.type}</h3>
+            <div class="text-3xl font-bold">
+              {option.price}
+              <span class="text-base font-normal">/ {option.period}</span>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <ul class="space-y-4 mb-6">
+              {benefits.map((benefit) => (
+                <li class="flex items-start">
+                  <div class="text-[var(--color-primary)] mr-3 mt-1 flex-shrink-0">
+                    <Icon name={benefit.icon} width="24" height="24" />
+                  </div>
+                  <span>{benefit.text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="p-6 text-center">
+              <Button href="#liittymisohjeet" variant="outline" class="w-full">
+                Liity jäseneksi
+              </Button>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div
+    id="liittymisohjeet"
+    class="mt-8 scroll-mt-30 bg-[#eef5ff] rounded-lg p-6 border border-[#d9e9ff] max-w-[1000px] mx-auto animate-on-scroll"
+  >
+    <h3 class="font-heading text-xl font-bold mb-3">Liittymisohjeet</h3>
+    <p class="mb-4">
+      Maksa jäsenmaksu pankkitilille: FI32 5157 8520 0035 45 (OP). Älä kirjoita
+      maksussa mitään viestiä, vaan käytä viitenumeroa 1012. Jos maksat useamman
+      henkilön jäsenmaksut, maksa jokaisen henkilön jäsenmaksut erikseen.
+    </p>
+    <p class="mb-4">Perhemaksussa riittää yksi maksu.</p>
+    <p class="mb-4">
+      Ilmoita maksamisen jälkeen Sulkasadon rahastonhoitajalle sähköpostilla
+      noksuh65@gmail.com seuraavat tiedot:
+    </p>
+    <ul class="list-disc list-inside mb-6 ml-2">
+      <li>Jäsenen/jäsenten nimi, osoite, sähköposti ja puhelinnumero</li>
+      <li>
+        Maksettu jäsenyys: puoli vuotta / vuosi, aikuinen / juniori / perhe
+      </li>
+      <li>
+        Jos kyseessä on perhejäsennys, liitä mukaan kaikkien perheenjäsenten
+        nimet ja yhteystiedot
+      </li>
+    </ul>
+    <p class="font-bold">
+      Tietojen ilmoittaminen on tärkeää jäsenrekisterin ja maksujen seurannan
+      kannalta.
+    </p>
+    <div class="mt-6">
+      <Button size="md" variant="outline" href="/jasenrekisteriseloste">
+        Jäsenrekisteriseloste
+      </Button>
+    </div>
+  </div>
+</Section>

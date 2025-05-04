@@ -1,0 +1,130 @@
+---
+import Section from "../common/Section.astro";
+import { itemsOnSale } from "../../data/ItemsOnSale";
+---
+
+<Section
+  title="Pallot ja varusteet"
+  subtitle="Seuralta voi ostaa palloja pelivuorojen aikana"
+  bgColor="bg-gray-50"
+>
+  <div class="bg-white shadow rounded-lg p-6 animate-on-scroll mb-8">
+    <h3 class="font-heading text-xl font-bold mb-3">Myytävät tuotteet</h3>
+
+    <div class="overflow-x-auto mb-6">
+      <table
+        class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200"
+      >
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="py-2 px-4 text-left">Tuote</th>
+            <th class="py-2 px-4 text-left">Tyyppi</th>
+            <th class="py-2 px-4 text-left">Määrä</th>
+            <th class="py-2 px-4 text-left">Jäsenhinta</th>
+            <th class="py-2 px-4 text-left">Ei-jäsen</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            itemsOnSale.map((item) => (
+              <tr>
+                <td class="py-2 px-4">{item.name}</td>
+                <td class="py-2 px-4">{item.type}</td>
+                <td class="py-2 px-4">{item.quantity}</td>
+                <td class="py-2 px-4">{item.memberPrice.toFixed(2)} €</td>
+                <td class="py-2 px-4">{item.nonMemberPrice.toFixed(2)} €</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+    <!-- Pallojen myynti -->
+    <div class="bg-white shadow rounded-lg p-6 animate-on-scroll">
+      <h3 class="font-heading text-xl font-bold mb-3">Pallojen myynti</h3>
+      <p class="text-gray-600 mb-4">
+        Palloja on myynnissä pelivuoroilla – kysy seuraavilta henkilöiltä:
+      </p>
+      <div class="overflow-x-auto mb-6">
+        <table
+          class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200"
+        >
+          <tbody>
+            <tr class="bg-gray-50">
+              <td class="py-2 px-4 font-semibold">Pertti Petäjä</td>
+              <td class="py-2 px-4">
+                044 534 4207<br />
+                pertti.petaja1@gmail.com
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 font-semibold">Liisa Petäjä</td>
+              <td class="py-2 px-4">
+                050 307 5558<br />
+                liisa.petaja@gmail.com
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-bold">Pallojen maksaminen:</h4>
+        <p class="mb-2">
+          Pallot maksetaan pankkitilille: FI32 5157 8520 0035 45 (OP)
+        </p>
+        <p>
+          Älä kirjoita maksussa mitään viestiä, vaan käytä viitenumeroa 1009.
+          Summaksi merkitse ostamiesi pallotuubien yhteishinta.
+        </p>
+      </div>
+    </div>
+
+    <div class="shadow rounded-lg p-6 bg-white animate-on-scroll h-fit">
+      <h3 class="font-heading text-xl font-bold mb-3">Mailanjännitys</h3>
+      <p class="text-gray-600 mb-4">
+        Mailojen jännitystä voi tiedustella seuraavilta henkilöiltä:
+      </p>
+
+      <div class="overflow-x-auto mb-6 h-fit">
+        <table
+          class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200"
+        >
+          <tbody>
+            <tr class="bg-gray-50">
+              <td class="py-2 px-4 font-semibold align-top"
+                >Ari Suikkanen <br />
+                Toimipiste: Iisalmi
+              </td>
+              <td class="py-2 px-4">
+                044 081 6591<br />
+                golfsuide@gmail.com
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 font-semibold align-top"
+                >Teijo Kumpulainen<br />
+                Toimipiste: Iisalmi</td
+              >
+              <td class="py-2 px-4">
+                0400 772 467<br />
+                teijokum73@gmail.com
+              </td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-2 px-4 font-semibold align-top"
+                >Miikka Väisänen<br />
+                Toimipiste: Siilinjärvi</td
+              >
+              <td class="py-2 px-4">
+                040 845 2949<br />
+                miikkavaisanen@hotmail.com
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,19 @@
+---
+import ContactCard from "../components/contactPage/ContactCard.astro";
+import PageHero from "../components/common/PageHero.astro";
+import Section from "../components/common/Section.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Yhteystiedot"
+  description="Ota yhteyttä Sulkasatoon. Saat lisätietoa jäsenyydestä, tapahtumista, valmennuksesta ja muusta seuratoiminnasta."
+>
+  <PageHero
+    title="Yhteystiedot"
+    subtitle="Ota yhteyttä Sulkasato Iisalmen toimijoihin"
+  />
+  <Section title="Johtokunta" bgColor="bg-gray-50">
+    <ContactCard />
+  </Section>
+</Layout>

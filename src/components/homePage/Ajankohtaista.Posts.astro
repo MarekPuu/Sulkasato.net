@@ -1,24 +1,30 @@
 ---
 import type { NewsItem } from "../../types";
 import NewsCard from "../common/NewsCard.astro";
+import { fetchNews } from "../../lib/api/news";
 // await new Promise((res) => setTimeout(res, 3000));
 
-const res = await fetch(
-  "http://directus-mok00ksoo8s00ogkoo8cw8o0.10.40.31.91.sslip.io/items/Post?sort=-date_created&limit=3"
-);
-const data = await res.json();
+let news = [] as NewsItem[];
+let fetchingError: string | null = null;
 
-const news: NewsItem[] = data.data ?? [];
+try {
+  news = await fetchNews({ sort: "-date_created", limit: 3 });
+} catch (error) {
+  fetchingError = "Uutisten lataaminen epäonnistui. Yritä myöhemmin uudelleen.";
+  console.error("Error fetching news:", error);
+}
 ---
+
+{
+  fetchingError && (
+    <div class="text-center text-red-600 text-lg py-8">{fetchingError}</div>
+  )
+}
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {
     news.map((item, index) => (
-      <NewsCard
-        key={index}
-        {...item}
-        image_source={item.image_source ?? "https://via.placeholder.com/300"}
-      >
+      <NewsCard key={index} {...item} image_source={item.image_source}>
         {item.Content}
       </NewsCard>
     ))

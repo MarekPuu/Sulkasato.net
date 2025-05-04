@@ -11,13 +11,15 @@ import sitemap from "@astrojs/sitemap";
 
 import robotsTxt from "astro-robots-txt";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
   site: "https://sulkasato.net",
-  integrations: [react(), sitemap(), robotsTxt()],
+  integrations: [react(), sitemap(), robotsTxt(), icon()],
 
   adapter: node({
     mode: "standalone",

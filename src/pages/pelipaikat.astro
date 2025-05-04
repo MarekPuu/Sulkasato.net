@@ -1,0 +1,20 @@
+---
+import PageHero from "../components/common/PageHero.astro";
+import Layout from "../layouts/Layout.astro";
+import Pelivuorot from "../components/schedulesPage/Pelivuorot.Section.astro";
+import PallotJaVarusteet from "../components/schedulesPage/PallotJaVarusteet.Section.astro";
+import VinkkejaPelivuoroille from "../components/schedulesPage/VinkkejaPelivuoroille.Section.astro";
+---
+
+<Layout
+  title="Pelipaikat"
+  description="Sulkasato Iisalmi ry:n sulkapallovuorot pelataan Kangaslammin koulun liikuntasalissa Iisalmessa. Pelaa Pulastic-alustalla, 5 kenttää käytössä. Ohjattuja harjoituksia junioreille ja aikuisille – tutustu ja liity mukaan!"
+>
+  <PageHero
+    title="Pelipaikat ja välineet"
+    subtitle="Tietoa pelipaikoista, vuorojen peruutuksista ja välineistä"
+  />
+  <Pelivuorot />
+  <PallotJaVarusteet />
+  <VinkkejaPelivuoroille />
+</Layout>

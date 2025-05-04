@@ -3,6 +3,7 @@ export interface Props {
   title: string;
   subtitle?: string;
   centered?: boolean;
+  padding?: string;
   bgColor?: string;
   id?: string;
 }
@@ -10,15 +11,17 @@ export interface Props {
 const {
   title,
   subtitle,
+  padding = "py-16",
   centered = false,
   bgColor = "bg-white",
   id,
 } = Astro.props;
 
 const titleAlignment = centered ? "text-center" : "text-left";
+const sectionPadding = padding ? padding : "py-16";
 ---
 
-<section class={`${bgColor} py-16 overflow-x-hidden`} id={id}>
+<section class={`${bgColor} ${sectionPadding} overflow-x-hidden`} id={id}>
   <div class="container mx-auto px-4">
     <div class={` mb-12`}>
       <h2

@@ -1,0 +1,67 @@
+---
+import Button from "../components/common/Button.astro";
+import PageHero from "../components/common/PageHero.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Kilpailutoiminta"
+  description="Tutustu Sulkasato Iisalmi ry:n kilpailutoimintaan ja ajankohtaisiin turnauksiin. Katso ilmoittautumisohjeet, säännöt ja tulokset Suomen Sulkapalloliiton kilpailukalenterista."
+>
+  <PageHero
+    title="Kilpailutoiminta"
+    subtitle="Jäsenenä pääset osallistumaan kilpailuihin."
+  />
+
+  <section class="px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl mx-auto animate-on-scroll">
+      <p class="text-lg mb-6">
+        Järjestettävistä kilpailuista ilmoitetaan hyvissä ajoin seuran jakamissa
+        tiedotteissa, paikallislehdissä ja seuran netti- ja Facebook- sivuilla.
+      </p>
+
+      <div class="bg-white rounded-lg shadow-md p-6 sm:p-8 mb-8">
+        <h3 class="font-heading text-2xl font-bold mb-4">Kilpailukalenteri</h3>
+        <p class="mb-6">
+          Katso tulevat kilpailut ja turnaukset Suomen Sulkapalloliiton
+          virallisesta kilpailukalenterista. Sieltä löydät:
+        </p>
+        <ul class="list-disc list-inside space-y-2 mb-6">
+          <li>Tulevat kilpailut ja turnaukset</li>
+          <li>Ilmoittautumisohjeet</li>
+          <li>Kilpailujen säännöt ja luokat</li>
+          <li>Tulokset ja tilastot</li>
+        </ul>
+        <Button
+          href="https://www.sulkapallo.fi/kilpaileminen/kilpailukalenteri/"
+          variant="primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Siirry kilpailukalenteriin
+        </Button>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-100 rounded-lg p-6">
+        <h3 class="font-heading text-xl font-bold mb-3">
+          Kilpaileminen Sulkasadossa
+        </h3>
+        <p class="mb-4">
+          Sulkasato Iisalmi kannustaa jäseniään osallistumaan
+          kilpailutoimintaan. Kilpaileminen on erinomainen tapa kehittyä
+          pelaajana ja tutustua muihin harrastajiin.
+        </p>
+        <p>
+          Jos olet kiinnostunut kilpailemisesta tai sinulla on kysyttävää
+          kilpailuista, ota yhteyttä seuran kilpailuvastaavaan:
+          <a
+            href="mailto:ronja.janatuinen@gmail.com"
+            class="text-blue-600 hover:text-blue-800 font-medium"
+          >
+            ronja.janatuinen@gmail.com
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

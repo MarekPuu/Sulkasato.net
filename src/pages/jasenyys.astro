@@ -1,0 +1,25 @@
+---
+import PageHero from "../components/common/PageHero.astro";
+import Layout from "../layouts/Layout.astro";
+import Hinnasto from "../components/membershipPage/Hinnasto.Section.astro";
+import UseinKysytys from "../components/membershipPage/UseinKysytys.Section.astro";
+
+const benefits = [
+  { icon: "mdi:calendar", text: "Maksuttomat pelivuorot ympäri vuoden" },
+  { icon: "mdi:medal", text: "Maksuttoman osallistumisen kilpailuihin" },
+  { icon: "mdi:book-open-variant", text: "Valmennus- ja kurssitoimintaa" },
+  { icon: "mdi:percent", text: "Alennus varusteista" },
+];
+---
+
+<Layout
+  title="Jäsenyys"
+  description="Liity Sulkasato:n jäseneksi ja hyödynnä edut kuten maksuttomat pelivuorot, kilpailut sekä valmennus- ja kurssitoiminta."
+>
+  <PageHero
+    title="Sulkasadon jäseneksi"
+    subtitle="Seuran jäsenenä pääset nauttimaan eduista"
+  />
+  <Hinnasto />
+  <UseinKysytys />
+</Layout>

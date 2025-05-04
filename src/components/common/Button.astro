@@ -27,11 +27,12 @@ const {
 } = Astro.props as Props & RestProps;
 
 const variantClasses = {
-  primary: "bg-[#3b82f6] text-white hover:bg-[#2563eb] transition-colors",
+  primary:
+    "bg-[var(--color-primary)] text-white hover:bg-[#2563eb] transition-colors",
   secondary: "bg-[#60a5fa] text-white hover:bg-[#3b82f6] transition-colors",
   outline:
-    "text-[#3b82f6] border border-[#3b82f6] hover:bg-gray-150 transition-colors",
-  text: "bg-transparent text-[#3b82f6] hover:bg-gray-50 transition-colors",
+    "text-[var(--color-primary)] border border-[var(--color-primary)]  hover:bg-gray-150 transition-colors",
+  text: "bg-transparent text-[var(--color-primary)]  hover:bg-gray-50 transition-colors",
 };
 
 const sizeClasses = {

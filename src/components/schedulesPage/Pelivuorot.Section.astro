@@ -1,0 +1,47 @@
+---
+import Section from "../common/Section.astro";
+import Button from "../common/Button.astro";
+import PelipaikatJaAikataulutSkeleton from "../common/PelipaikatJaAikataulut.Skeleton.astro";
+import PelipaikatJaAikataulut from "../common/PelipaikatJaAikataulut.Table.astro";
+---
+
+<Section
+  title="Pelivuorot"
+  subtitle="Ilmoitamme peruutuksista facebook sivuillamme"
+>
+  <PelipaikatJaAikataulut server:defer>
+    <PelipaikatJaAikataulutSkeleton slot="fallback" />
+  </PelipaikatJaAikataulut>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+    <div class="bg-white shadow rounded-lg p-6 animate-on-scroll">
+      <h3 class="font-heading text-xl font-bold mb-3">Kangaslammin koulu</h3>
+      <p class="text-gray-600 mb-4">Petter Kumpulaisentie 30, 74130 Iisalmi</p>
+      <p class="mb-6">
+        Viisi sulkapallokenttää, jotka sijaitsevat koulun liikuntasalissa.
+        Alustana Pulastic.
+      </p>
+      <Button
+        href={`https://maps.google.com/?q=Petter Kumpulaisentie 30, 74130 Iisalmi`}
+        variant="outline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Näytä kartalla
+      </Button>
+    </div>
+    <div class="bg-white shadow rounded-lg p-6 animate-on-scroll">
+      <h3 class="font-heading text-xl font-bold mb-3">
+        Keskiviikon ohjattu vuoro
+      </h3>
+      <p class="text-gray-600 mb-4">
+        Juniorit ja ohjatusta harjoittelusta kiinnostuneet
+      </p>
+      <p class="mb-6">
+        Vuoroilla harjoitellaan sulkapallon tekniikoita ja pelataan rennosti.
+        Ohjaajina toimivat Sulkasadon koulutetut vetäjät, ja seuran mailat sekä
+        pallot ovat käytettävissä. Alle 10-vuotiaat toivomme paikalle huoltajan
+        kanssa. Tervetuloa kokeilemaan!
+      </p>
+    </div>
+  </div>
+</Section>

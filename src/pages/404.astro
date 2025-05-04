@@ -1,21 +1,37 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
 ---
 
-<Layout title="404">
-  <main class="text-center px-6 mt-[10%]">
-    <div
-      class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-200"
-    >
-      <div class="text-6xl font-extrabold text-[#1a52e2] mb-2">404</div>
-      <h1 class="text-2xl font-semibold mb-2">Sivua ei löytynyt</h1>
-      <p class="mb-6 text-gray-600">Oho! Etsimääsi sivua ei löytynyt.</p>
-      <a
-        href="/"
-        class="inline-block bg-[#1a52e2] text-white font-medium px-5 py-2.5 rounded-md hover:bg-[#163fbb] transition-colors"
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 – Sivua ei löytynyt</title>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center bg-[var(--color-primary)] text-gray-900 shadow-2xl"
+  >
+    <main class="w-full max-w-lg px-6 py-12 sm:px-8 sm:py-16">
+      <div
+        class="bg-white p-10 sm:p-12 rounded-2xl shadow-xl border border-gray-100 text-center"
       >
-        Takaisin etusivulle
-      </a>
-    </div>
-  </main>
-</Layout>
+        <div
+          class="text-[72px] leading-none font-black text-[var(--color-primary)] mb-4"
+        >
+          404
+        </div>
+        <h1 class="text-3xl font-semibold mb-3">Sivua ei löytynyt</h1>
+        <p class="text-gray-600 mb-6">
+          Oho! Etsimääsi sivua ei löytynyt tai se on siirretty.
+        </p>
+        <a
+          href="/"
+          class="inline-block bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-lg hover:bg-[color-mix(in srgb, var(--color-primary) 80%, black)] transition-colors duration-200"
+        >
+          Takaisin etusivulle
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
