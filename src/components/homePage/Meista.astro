@@ -1,8 +1,6 @@
 ---
 import Button from "../common/Button.astro";
 import Section from "../common/Section.astro";
-import { Image } from "astro:assets";
-import MeistaImage from "../../assets/MeistaIMG.png";
 ---
 
 <Section
@@ -30,9 +28,9 @@ import MeistaImage from "../../assets/MeistaIMG.png";
     </div>
 
     <div class="order-1 md:order-2 animate-on-scroll">
-      <Image
-        src={MeistaImage}
-        alt="Badminton player"
+      <img
+        src="images/MeistaIMG.webp"
+        alt="Sulkasato Iisalmi kuvituskuva"
         loading="lazy"
         height="320"
         class="rounded-lg shadow-lg h-80 object-contain w-fit mx-auto"

@@ -1,8 +1,6 @@
 ---
 import type { NewsItem } from "../../types";
 import { formatDate } from "../../utils/formatDate";
-import { Image } from "astro:assets";
-import default_image from "../../assets/default_image.webp";
 const { Title, Content, image_source, date_created } = Astro.props as NewsItem;
 const date = formatDate(date_created);
 ---
@@ -13,7 +11,7 @@ const date = formatDate(date_created);
   {
     (
       <div class="aspect-video overflow-hidden">
-        <Image
+        <img
           src={image_source || "/images/default_image_sm.webp"}
           alt={Title}
           width={500}
