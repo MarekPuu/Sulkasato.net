@@ -9,10 +9,9 @@ import robotsTxt from "astro-robots-txt";
 
 import icon from "astro-icon";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
   vite: {
     plugins: [tailwindcss()],
   },

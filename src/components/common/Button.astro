@@ -60,6 +60,7 @@ const Tag = href && !disabled ? "a" : "button";
 ---
 
 <Tag
+  data-astro-prefetch="hover"
   href={!disabled ? href : undefined}
   type={!href ? type : undefined}
   class={classes}
