@@ -2,7 +2,7 @@
 export interface Props {
   href?: string;
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary" | "outline" | "text";
+  variant?: "primary" | "secondary" | "outline" | "outlineWhite" | "text";
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   class?: string;
@@ -31,8 +31,9 @@ const variantClasses = {
     "bg-[var(--color-primary)] text-white hover:bg-[#2563eb] transition-colors",
   secondary: "bg-[#60a5fa] text-white hover:bg-[#3b82f6] transition-colors",
   outline:
-    "text-[var(--color-primary)] border border-[var(--color-primary)]  hover:bg-gray-150 transition-colors",
-  text: "bg-transparent text-[var(--color-primary)]  hover:bg-gray-50 transition-colors",
+    "text-[var(--color-primary)] border border-[var(--color-primary)] transition-colors",
+  outlineWhite: "text-[#fff] border border-[#fff]  transition-colors",
+  text: "bg-transparent text-[var(--color-primary)]  hover:bg-gray-0 transition-colors",
 };
 
 const sizeClasses = {
