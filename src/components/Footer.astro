@@ -83,46 +83,60 @@
         <h3 class="font-heading text-xl font-bold mb-4">Navigointi</h3>
         <ul class="grid grid-cols-2 gap-2">
           <li>
-            <a href="/" class="hover:text-primary-300 transition-colors"
-              >Etusivu</a
-            >
-          </li>
-          <li>
-            <a href="/uutiset" class="hover:text-primary-300 transition-colors"
-              >Uutiset</a
+            <a
+              href="/"
+              class="hover:text-primary-300 transition-colors"
+              data-astro-prefetch="hover">Etusivu</a
             >
           </li>
           <li>
             <a
-              href="/pelipaikat"
+              href="/uutiset/"
+              class="hover:text-primary-300 transition-colors"
+              data-astro-prefetch="hover"
+              data-astro-prefetch="hover">Uutiset</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pelipaikat/"
+              data-astro-prefetch="hover"
               class="hover:text-primary-300 transition-colors">Pelipaikat</a
             >
           </li>
           <li>
-            <a href="/jasenyys" class="hover:text-primary-300 transition-colors"
-              >Jäsenyys</a
+            <a
+              href="/jasenyys/"
+              data-astro-prefetch="hover"
+              class="hover:text-primary-300 transition-colors">Jäsenyys</a
             >
           </li>
           <li>
             <a
-              href="/kilpailut"
+              href="/kilpailut/"
+              data-astro-prefetch="hover"
               class="hover:text-primary-300 transition-colors">Kilpailut</a
             >
           </li>
           <li>
             <a
-              href="/yhteystiedot"
+              href="/yhteystiedot/"
+              data-astro-prefetch="hover"
               class="hover:text-primary-300 transition-colors">Yhteystiedot</a
             >
           </li>
           <li>
-            <a href="/galleria" class="hover:text-primary-300 transition-colors"
-              >Galleria</a
+            <a
+              href="https://mijauhi.jalbum.net/"
+              target="_blank"
+              class="hover:text-primary-300 transition-colors">Galleria</a
             >
           </li>
           <li>
-            <a href="/historia" class="hover:text-primary-300 transition-colors"
-              >Historia</a
+            <a
+              href="/seuran-historia/"
+              data-astro-prefetch="hover"
+              class="hover:text-primary-300 transition-colors">Historia</a
             >
           </li>
         </ul>
