@@ -9,6 +9,8 @@ import robotsTxt from "astro-robots-txt";
 
 import icon from "astro-icon";
 
+import favicons from "astro-favicons";
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
@@ -18,5 +20,5 @@ export default defineConfig({
 
   site: "https://sulkasato.net",
   output: "static",
-  integrations: [sitemap(), robotsTxt(), icon()],
+  integrations: [sitemap(), robotsTxt(), icon(), favicons()],
 });
