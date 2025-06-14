@@ -3,20 +3,15 @@ import { membershipOptions } from "../../data/membershipOptions";
 import Button from "../../components/common/Button.astro";
 import { Icon } from "astro-icon/components";
 import Section from "../common/Section.astro";
-
-const benefits = [
-  { icon: "mdi:calendar", text: "Maksuttomat pelivuorot ympäri vuoden" },
-  { icon: "mdi:medal", text: "Maksuttoman osallistumisen kilpailuihin" },
-  { icon: "mdi:book-open-variant", text: "Valmennus- ja kurssitoimintaa" },
-  { icon: "mdi:percent", text: "Alennus varusteista" },
-];
 ---
 
 <Section
   title="Hinnasto"
   subtitle="Voit maksaa joko puolen vuoden tai koko vuoden jäsenmaksun."
 >
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 items-start"
+  >
     {
       membershipOptions.map((option) => (
         <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-0.3 hover:shadow-lg animate-on-scroll">
@@ -30,7 +25,7 @@ const benefits = [
 
           <div class="p-6">
             <ul class="space-y-4 mb-6">
-              {benefits.map((benefit) => (
+              {option?.benefits?.map((benefit) => (
                 <li class="flex items-start">
                   <div class="text-[var(--color-primary)] mr-3 mt-1 flex-shrink-0">
                     <Icon name={benefit.icon} width="24" height="24" />

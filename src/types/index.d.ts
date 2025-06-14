@@ -5,3 +5,4 @@ export * from "./membershipOptions";
 export * from "./faq";
 export * from "./boardMember";
 export * from "./galleryItem";
+export * from "./benefits";
